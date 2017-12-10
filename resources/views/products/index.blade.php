@@ -3,11 +3,18 @@
 
 @section('content')
 
+<div class="container">
 <div class="big-padding text-center blue-gray white-text">
 	<h2>Productos</h2>
 </div>
-<div class="container">
-	<table class="table table-bordered">
+
+<button class="btn btn-prymary">
+<a href="products/create">Nuevo Producto</a>
+</button>
+
+<br>	
+
+<table class="table table-bordered">
 		<thead>
 			<td>ID</td>
 			<td>TITULO</td>
@@ -32,6 +39,7 @@
 		</tbody>
 
 	</table>
-</div>	
+	
+	</div>
 
 @endsection

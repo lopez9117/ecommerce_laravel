@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Ok  Aqui va todo el contenido de los productos
+                    Bienvenido a la tienda Laravel para Backlayer
                 </div>
             </div>
         </div>
