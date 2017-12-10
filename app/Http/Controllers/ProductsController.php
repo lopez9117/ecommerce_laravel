@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Product;
+
+use Illuminate\Support\Facades\Auth;
+
 class ProductsController extends Controller
 {
     /**
@@ -13,7 +17,10 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        //consultar productos de la base de datos
+        $products = Product::all(); 
+        //Listar productos
+        return  view ('products.index', ['products' => $products ]);
     }
 
     /**
@@ -23,7 +30,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        //Vista para crear productos
+        return view('products.create');
     }
 
     /**
@@ -34,7 +42,21 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //funcion para guardar producto
+        $producto = new Product;
+
+        $producto->tittle = $request->tittle;
+        $producto->description = $request->description;
+        $producto->precio = $request->precio;
+        $producto->user_id = Auth::user()->id;
+
+        if ($producto->save()) {
+            # code...
+            return redirect('/products');
+        }else{
+            return view('/products.create');
+        }
+
     }
 
     /**
@@ -45,7 +67,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        //mostarr producto e especifico
     }
 
     /**
@@ -56,7 +78,7 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        //mostrar formulario d edicion
     }
 
     /**
@@ -68,7 +90,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //metodo de editar producto
     }
 
     /**
@@ -79,6 +101,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar producto
+
+
     }
 }
