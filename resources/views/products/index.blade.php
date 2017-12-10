@@ -30,9 +30,13 @@
 			<td>{{$product->description}}</td>
 			<td>{{$product->precio}}</td>
 			<td>
-				<label> Editar</label>
-				<label> Eliminar</label>
-				<label> Ver</label>
+				<a href=""><label> Editar</label></a>
+				<form style="display: inline;" method="POST" action="{{route('products.destroy',$product->id)}}">
+   					 {!!csrf_field()!!}
+   					 {!!method_field('DELETE')!!}
+   					 <button type="submit" class="btn btn-danger">Eliminar</button>
+  					</form>
+				<a href=""><label> Ver</label></a>
 			</td>
 </tr>
 			@endforeach

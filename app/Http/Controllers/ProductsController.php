@@ -68,6 +68,8 @@ class ProductsController extends Controller
     public function show($id)
     {
         //mostarr producto e especifico
+        $products = Product::find($id); 
+        return view('products.show',['products' => $products]);
     }
 
     /**
@@ -102,7 +104,9 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //Eliminar producto
+        Product::destroy($id);
 
+        return redirect('/products');
 
     }
 }
