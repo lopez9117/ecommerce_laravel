@@ -29,14 +29,17 @@
 			<td>{{$product->tittle}}</td>
 			<td>{{$product->description}}</td>
 			<td>{{$product->precio}}</td>
-			<td>
-				<a href=""><label> Editar</label></a>
+			<td>	
 				<form style="display: inline;" method="POST" action="{{route('products.destroy',$product->id)}}">
    					 {!!csrf_field()!!}
    					 {!!method_field('DELETE')!!}
    					 <button type="submit" class="btn btn-danger">Eliminar</button>
   					</form>
-				<a href=""><label> Ver</label></a>
+				<form style="display: inline;" method="POST" action="{{route('products.show',$product->id)}}">
+   					 {!!csrf_field()!!}
+   					 {!!method_field('GET')!!}
+   					 <button type="submit" class="btn btn-success">Ver</button>
+  					</form>
 			</td>
 </tr>
 			@endforeach

@@ -12,11 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
+
+Route::get('/carrito', 'ShoppingCartsController@index');
+
 
 Auth::routes();
 
 Route::get('/home', 'InicialController@index');
 
 Route::resource('products','ProductsController');
+
+Route::resource('in_shopping_carts','InShoppingCartsController',[
+	'only' => ['store','destroy']
+]);
